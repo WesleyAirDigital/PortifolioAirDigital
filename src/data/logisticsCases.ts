@@ -6,6 +6,7 @@ export type LogisticsCase = {
   category: string
   thumbnail: string
   videoUrl: string
+  videoType?: 'youtube' | 'file'
   segment: string
   objective: string
   strategy: string
@@ -17,6 +18,7 @@ export type LogisticsCase = {
 
 const imagePath = (fileName: string) => withBasePath(`/images/logistics/${fileName}`)
 const videoPath = (fileName: string) => withBasePath(`/media/logistics/${fileName}`)
+const youtubeVideoPath = (videoId: string) => `https://www.youtube.com/watch?v=${videoId}`
 
 // Add, remove or reorder items here to update the streaming catalog.
 // Keep one item per unique video to avoid duplicate cards in the landing.
@@ -26,7 +28,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'Master Cargas | Segurança e controle',
     category: 'Operação & Controle',
     thumbnail: imagePath('master-cargas-cftv.jpg'),
-    videoUrl: videoPath('master-cargas-cftv.mp4'),
+    videoUrl: youtubeVideoPath('hVcco-4adw8'),
+    videoType: 'youtube',
     segment: 'Logística / Transporte / Segurança operacional',
     objective:
       'Traduzir infraestrutura, rastreabilidade e governança em confiança comercial para grandes embarcadores.',
@@ -44,7 +47,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'Master Cargas | Operação que convence',
     category: 'Comercial B2B',
     thumbnail: imagePath('master-cargas-operacao.jpg'),
-    videoUrl: videoPath('master-cargas-operacao.mp4'),
+    videoUrl: youtubeVideoPath('g0aG_GWlS68'),
+    videoType: 'youtube',
     segment: 'Logística / Armazenagem / Supply',
     objective:
       'Converter rotina operacional em presença comercial forte para propostas, reuniões e follow-ups com indústria.',
@@ -80,7 +84,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'Operação de bebidas | Abastecimento e escala',
     category: 'Operação Industrial',
     thumbnail: imagePath('operacao-bebidas-abastecimento.jpg'),
-    videoUrl: videoPath('operacao-bebidas-abastecimento.mp4'),
+    videoUrl: youtubeVideoPath('M96m494yugE'),
+    videoType: 'youtube',
     segment: 'Indústria / Bebidas / Distribuição',
     objective:
       'Mostrar capacidade de abastecimento, giro operacional e leitura de escala em uma operação industrial de alto volume.',
@@ -98,7 +103,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'Convenção estratégica | Cultura e performance',
     category: 'Marca Empregadora',
     thumbnail: imagePath('convencao-cultura-performance.jpg'),
-    videoUrl: videoPath('convencao-cultura-performance.mp4'),
+    videoUrl: youtubeVideoPath('3_Abrl_Qa7A'),
+    videoType: 'youtube',
     segment: 'Eventos corporativos / Cultura / Endomarketing',
     objective:
       'Registrar um encontro estratégico com padrão premium para reforçar cultura, engajamento interno e percepção de marca empregadora.',
@@ -116,7 +122,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'Master Cargas Brasil | Escala em Joinville',
     category: 'Operação & Controle',
     thumbnail: imagePath('master-cargas-joinville-escala.jpg'),
-    videoUrl: videoPath('master-cargas-joinville-escala.mp4'),
+    videoUrl: youtubeVideoPath('EDEEOhk7iGI'),
+    videoType: 'youtube',
     segment: 'Logística / Armazenagem / Joinville',
     objective:
       'Evidenciar capacidade instalada, leitura de espaço e padrão operacional em uma unidade preparada para operações de maior porte.',
@@ -134,7 +141,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'Importação V7 | Controle e conferência',
     category: 'Importação & Supply',
     thumbnail: imagePath('importacao-v7-controle.jpg'),
-    videoUrl: videoPath('importacao-v7-controle.mp4'),
+    videoUrl: youtubeVideoPath('6Q6AMP88NLc'),
+    videoType: 'youtube',
     segment: 'Importação / Recebimento / Conferência',
     objective:
       'Transformar rotina de recebimento, conferência e controle em um ativo visual de confiança para operações mais exigentes.',
@@ -170,7 +178,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'DAF Caminhões | Estrutura e pós-venda',
     category: 'Pós-venda & Supply',
     thumbnail: imagePath('daf-pos-venda-estrutura.jpg'),
-    videoUrl: videoPath('daf-pos-venda-estrutura.mp4'),
+    videoUrl: youtubeVideoPath('HgJe9dksSFY'),
+    videoType: 'youtube',
     segment: 'Automotivo / Pós-venda / Rede de serviços',
     objective:
       'Valorizar estrutura técnica, atendimento e percepção de confiabilidade em uma operação ligada ao pós-venda automotivo.',
@@ -188,7 +197,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'DAF | Peças, armazenagem e supply',
     category: 'Pós-venda & Supply',
     thumbnail: imagePath('daf-pecas-armazenagem.jpg'),
-    videoUrl: videoPath('daf-pecas-armazenagem.mp4'),
+    videoUrl: youtubeVideoPath('JqWYdVaRxgQ'),
+    videoType: 'youtube',
     segment: 'Automotivo / Peças / Armazenagem',
     objective:
       'Traduzir organização de peças, fluxo de armazenagem e suporte logístico em confiança para operações de abastecimento.',
@@ -206,7 +216,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'Locação | São José dos Pinhais',
     category: 'Serviços & Locação',
     thumbnail: imagePath('locacao-sao-jose-pinhais.jpg'),
-    videoUrl: videoPath('locacao-sao-jose-pinhais.mp4'),
+    videoUrl: youtubeVideoPath('_XoYn7tYX5M'),
+    videoType: 'youtube',
     segment: 'Locação / Comercial / São José dos Pinhais',
     objective:
       'Fortalecer a comunicação comercial de um serviço de locação com linguagem mais profissional e objetiva.',
@@ -224,7 +235,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'BR-277 | Operação full service',
     category: 'Full Service',
     thumbnail: imagePath('br-277-full-service.jpg'),
-    videoUrl: videoPath('br-277-full-service.mp4'),
+    videoUrl: youtubeVideoPath('p8WI29mhz7s'),
+    videoType: 'youtube',
     segment: 'Logística / Full service / BR-277',
     objective:
       'Comunicar uma operação full service com leitura clara de escala, armazenagem e capacidade de atendimento.',
@@ -242,7 +254,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'WEG | Continuidade operacional',
     category: 'Tecnologia & Infraestrutura',
     thumbnail: imagePath('weg-continuidade-operacional.jpg'),
-    videoUrl: videoPath('weg-continuidade-operacional.mp4'),
+    videoUrl: youtubeVideoPath('USZQ8E8PtjA'),
+    videoType: 'youtube',
     segment: 'Energia / Continuidade / Infraestrutura',
     objective:
       'Apresentar uma solução técnica com linguagem acessível, premium e adequada a decisores corporativos.',
@@ -260,7 +273,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'Bioar Arla 32 | Tecnologia na rota',
     category: 'Tecnologia & Infraestrutura',
     thumbnail: imagePath('bioar-arla32-tecnologia-rota.jpg'),
-    videoUrl: videoPath('bioar-arla32-tecnologia-rota.mp4'),
+    videoUrl: youtubeVideoPath('JvPNOOOyp3o'),
+    videoType: 'youtube',
     segment: 'Tecnologia / Estradas / Operação em campo',
     objective:
       'Associar tecnologia aplicada à rotina de campo com uma leitura visual mais moderna e orientada a performance.',
@@ -278,7 +292,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'SPCS | Supervisão de ativos críticos',
     category: 'Tecnologia & Infraestrutura',
     thumbnail: imagePath('spcs-supervisao-ativos.jpg'),
-    videoUrl: videoPath('spcs-supervisao-ativos.mp4'),
+    videoUrl: youtubeVideoPath('cuQra1S1Fvw'),
+    videoType: 'youtube',
     segment: 'Energia / Supervisão / Ativos críticos',
     objective:
       'Explicar uma solução crítica de proteção e supervisão com linguagem visual mais segura e corporativa.',
@@ -296,7 +311,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'Master Cargas Brasil | Cachoeirinha em escala',
     category: 'Operação & Controle',
     thumbnail: imagePath('master-cargas-cachoeirinha.jpg'),
-    videoUrl: videoPath('master-cargas-cachoeirinha.mp4'),
+    videoUrl: youtubeVideoPath('Vv4loubKXeU'),
+    videoType: 'youtube',
     segment: 'Logística / Armazenagem / Cachoeirinha',
     objective:
       'Evidenciar capacidade instalada, metragem operacional e potencial de atendimento para operações de maior porte.',
@@ -314,7 +330,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'Master Cargas | Motoristas 2025',
     category: 'Marca Empregadora',
     thumbnail: imagePath('motoristas-2025.jpg'),
-    videoUrl: videoPath('motoristas-2025.mp4'),
+    videoUrl: youtubeVideoPath('lRjHhAjSn_c'),
+    videoType: 'youtube',
     segment: 'Logística / Frota / Motoristas',
     objective:
       'Fortalecer a atração de motoristas com uma comunicação mais humana, organizada e alinhada à cultura operacional da marca.',
@@ -332,7 +349,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'Indaiatuba | Estrutura para linha branca',
     category: 'Operação Industrial',
     thumbnail: imagePath('indaiatuba-linha-branca.jpg'),
-    videoUrl: videoPath('indaiatuba-linha-branca.mp4'),
+    videoUrl: youtubeVideoPath('iFm_-vMIhng'),
+    videoType: 'youtube',
     segment: 'Logística / Linha branca / Indaiatuba',
     objective:
       'Apresentar uma estrutura dedicada à linha branca com leitura objetiva de docas, fluxo e capacidade operacional.',
@@ -350,7 +368,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'Master Cargas | Armazém 2 em Ponta Grossa',
     category: 'Operação & Controle',
     thumbnail: imagePath('armazem-2-ponta-grossa.jpg'),
-    videoUrl: videoPath('armazem-2-ponta-grossa.mp4'),
+    videoUrl: youtubeVideoPath('w3q2x8G-aXM'),
+    videoType: 'youtube',
     segment: 'Logística / Expansão / Ponta Grossa',
     objective:
       'Comunicar expansão de infraestrutura com uma leitura clara de malha, ocupação territorial e capacidade de crescimento.',
@@ -368,7 +387,8 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'Master Cargas | Assertividade em todos os modais',
     category: 'Posicionamento Comercial',
     thumbnail: imagePath('assertividade-modais.jpg'),
-    videoUrl: videoPath('assertividade-modais.mp4'),
+    videoUrl: youtubeVideoPath('ExemI3NnJtU'),
+    videoType: 'youtube',
     segment: 'Logística / Multimodal / Presença comercial',
     objective:
       'Sintetizar a proposta de valor da marca em uma mensagem mais forte para vendas, posicionamento e presença institucional.',

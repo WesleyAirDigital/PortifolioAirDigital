@@ -16,6 +16,26 @@ type VideoCaseModalProps = {
   contactHref: string
 }
 
+const getYouTubeEmbedUrl = (videoUrl: string) => {
+  try {
+    const url = new URL(videoUrl)
+
+    if (url.hostname.includes('youtu.be')) {
+      const videoId = url.pathname.replace('/', '')
+      return videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0` : null
+    }
+
+    if (url.hostname.includes('youtube.com')) {
+      const videoId = url.searchParams.get('v')
+      return videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0` : null
+    }
+  } catch {
+    return null
+  }
+
+  return null
+}
+
 export function VideoCaseModal({
   caseItem,
   onClose,
@@ -51,6 +71,9 @@ export function VideoCaseModal({
     return null
   }
 
+  const youtubeEmbedUrl =
+    caseItem.videoType === 'youtube' ? getYouTubeEmbedUrl(caseItem.videoUrl) : null
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-end justify-center bg-[rgba(2,4,10,0.78)] p-4 backdrop-blur-2xl md:items-center"
@@ -73,16 +96,31 @@ export function VideoCaseModal({
 
         <div className="grid max-h-[92vh] overflow-y-auto lg:grid-cols-[minmax(0,1.2fr)_minmax(360px,0.8fr)]">
           <div className="border-b border-white/8 bg-black lg:border-b-0 lg:border-r">
-            <video
-              key={caseItem.id}
-              className="aspect-video w-full bg-black object-cover"
-              controls
-              playsInline
-              preload="metadata"
-              poster={caseItem.thumbnail}
-            >
-              <source src={caseItem.videoUrl} type="video/mp4" />
-            </video>
+            {youtubeEmbedUrl ? (
+              <div className="aspect-video w-full bg-black">
+                <iframe
+                  key={caseItem.id}
+                  className="h-full w-full"
+                  src={youtubeEmbedUrl}
+                  title={caseItem.title}
+                  loading="eager"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            ) : (
+              <video
+                key={caseItem.id}
+                className="aspect-video w-full bg-black object-cover"
+                controls
+                playsInline
+                preload="metadata"
+                poster={caseItem.thumbnail}
+              >
+                <source src={caseItem.videoUrl} type="video/mp4" />
+              </video>
+            )}
           </div>
 
           <div className="flex flex-col gap-6 bg-[radial-gradient(circle_at_top,rgba(0,85,255,0.14),transparent_36%)] p-6 sm:p-7">
