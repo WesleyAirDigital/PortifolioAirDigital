@@ -169,7 +169,7 @@ function App() {
               href={specialistHref}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-[#0055ff] px-5 py-3 text-sm font-medium text-white shadow-[0_18px_50px_rgba(0,85,255,0.28)] transition hover:-translate-y-0.5 hover:bg-[#1767ff]"
+              className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-[#0055ff] px-4 py-2.5 text-[13px] font-medium leading-[1.15] text-white shadow-[0_18px_50px_rgba(0,85,255,0.28)] transition hover:-translate-y-0.5 hover:bg-[#1767ff] sm:px-5 sm:py-3 sm:text-sm"
             >
               Falar sobre sua operação
             </a>
@@ -177,18 +177,18 @@ function App() {
         </header>
 
         <main id="topo">
-	          <section className="mx-auto flex w-full max-w-[1280px] flex-col gap-14 px-6 pb-16 pt-14 lg:px-8 lg:pb-24 lg:pt-20 xl:grid xl:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] xl:items-end">
+	          <section className="mx-auto flex w-full max-w-[1280px] flex-col gap-12 px-6 pb-16 pt-12 lg:px-8 lg:gap-14 lg:pb-24 lg:pt-20 xl:grid xl:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] xl:items-end">
             <div className="max-w-[760px]">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/72 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
                 <span className="h-2 w-2 rounded-full bg-[#70b3ff]" />
                 Portfólio premium de vídeo cases para logística
               </div>
 
-              <h1 className="font-display text-glow mt-8 max-w-[14ch] text-[3.3rem] font-medium leading-[0.95] tracking-[-0.06em] text-[#eeeeee] sm:text-[4.4rem] lg:text-[5.6rem]">
+              <h1 className="font-display text-glow mt-7 max-w-[14ch] text-[3rem] font-medium leading-[0.93] tracking-[-0.06em] text-[#eeeeee] sm:mt-8 sm:text-[4.4rem] lg:text-[5.6rem]">
                 Transformamos operação logística em autoridade percebida para fechar com grandes indústrias
               </h1>
 
-              <p className="mt-7 max-w-[63ch] text-lg leading-8 text-white/62 sm:text-xl">
+              <p className="mt-6 max-w-[63ch] text-base leading-7 text-white/62 sm:mt-7 sm:text-xl sm:leading-8">
                 Da estratégia ao vídeo case, estruturamos presença comercial, argumento visual e percepção de valor para empresas que precisam abrir agenda, sustentar propostas e avançar em contratos maiores no B2B industrial.
               </p>
 
@@ -326,50 +326,50 @@ function App() {
 	                  src={mobileHeroCase.thumbnail}
 	                  alt={mobileHeroCase.title}
 	                  loading="eager"
-	                  className={`aspect-[0.98] w-full object-cover brightness-[0.95] contrast-[1.06] saturate-[0.96] transition duration-700 group-hover:scale-[1.05] ${mobileHeroCase.thumbnailClassName ?? 'object-center'}`}
+	                  className={`aspect-[0.9] w-full object-cover brightness-[0.95] contrast-[1.06] saturate-[0.96] transition duration-700 group-hover:scale-[1.05] ${mobileHeroCase.thumbnailClassName ?? 'object-center'}`}
 	                />
 	                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,4,10,0.04)_0%,rgba(2,4,10,0.22)_22%,rgba(2,4,10,0.58)_56%,rgba(2,4,10,0.96)_100%)]" />
 	                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,85,255,0.34),transparent_42%)]" />
-	                <div className="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(180deg,transparent,rgba(2,4,10,0.26)_30%,rgba(2,4,10,0.9))]" />
+	                <div className="absolute inset-x-0 bottom-0 h-44 bg-[linear-gradient(180deg,transparent,rgba(2,4,10,0.26)_30%,rgba(2,4,10,0.9))]" />
 
-	                <div className="absolute left-4 right-4 top-4 flex items-start justify-between gap-3">
+	                <div className="absolute left-4 right-4 top-3.5 flex items-start justify-between gap-3">
 	                  <div className="flex flex-wrap items-center gap-2">
-		                    <span className="rounded-full border border-[#0055ff]/30 bg-[rgba(0,85,255,0.18)] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.26em] text-[#9cc4ff] shadow-[0_10px_28px_rgba(0,85,255,0.18)] backdrop-blur-md">
+		                    <span className="rounded-full border border-[#0055ff]/30 bg-[rgba(0,85,255,0.18)] px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.22em] text-[#9cc4ff] shadow-[0_10px_28px_rgba(0,85,255,0.18)] backdrop-blur-md">
 	                      Case em destaque
 	                    </span>
-	                    <span className="rounded-full border border-white/12 bg-black/40 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-white/78 backdrop-blur-md">
+	                    <span className="rounded-full border border-white/12 bg-black/40 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-white/78 backdrop-blur-md">
 	                      {mobileHeroCase.badge}
 	                    </span>
 	                  </div>
-	                  <span className="rounded-full border border-white/12 bg-black/40 px-3 py-1 text-[11px] font-medium text-white/76 backdrop-blur-md">
+	                  <span className="rounded-full border border-white/12 bg-black/40 px-2.5 py-1 text-[10px] font-medium text-white/76 backdrop-blur-md">
 	                    {mobileHeroCase.duration}
 	                  </span>
 	                </div>
 
-	                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-	                  <span className="flex h-28 w-28 items-center justify-center rounded-full border border-[#8bb8ff]/38 bg-[radial-gradient(circle_at_32%_28%,rgba(37,110,255,0.44),rgba(3,8,19,0.92))] text-white shadow-[0_0_0_12px_rgba(255,255,255,0.04),0_0_0_28px_rgba(0,85,255,0.1),0_32px_120px_rgba(0,0,0,0.52)] backdrop-blur-md transition duration-300 group-hover:scale-110 group-hover:border-[#c8deff]/72 group-hover:shadow-[0_0_0_12px_rgba(255,255,255,0.06),0_0_0_34px_rgba(0,85,255,0.14),0_36px_120px_rgba(0,0,0,0.56)]">
-	                    <Play className="ml-1 h-10 w-10 fill-current" />
+	                <div className="absolute inset-x-0 top-[25%] flex flex-col items-center gap-2.5">
+	                  <span className="flex h-24 w-24 items-center justify-center rounded-full border border-[#8bb8ff]/38 bg-[radial-gradient(circle_at_32%_28%,rgba(37,110,255,0.44),rgba(3,8,19,0.92))] text-white shadow-[0_0_0_12px_rgba(255,255,255,0.04),0_0_0_28px_rgba(0,85,255,0.1),0_32px_120px_rgba(0,0,0,0.52)] backdrop-blur-md transition duration-300 group-hover:scale-110 group-hover:border-[#c8deff]/72 group-hover:shadow-[0_0_0_12px_rgba(255,255,255,0.06),0_0_0_34px_rgba(0,85,255,0.14),0_36px_120px_rgba(0,0,0,0.56)]">
+	                    <Play className="ml-1 h-9 w-9 fill-current" />
 	                  </span>
-	                  <span className="rounded-full border border-white/10 bg-black/42 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-white/78 backdrop-blur-md">
+	                  <span className="rounded-full border border-white/10 bg-black/42 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-white/78 backdrop-blur-md">
 	                    toque para assistir
 	                  </span>
 	                </div>
 
-	                <div className="absolute inset-x-0 bottom-0 p-5">
-	                  <div className="rounded-[28px] border border-white/12 bg-[linear-gradient(180deg,rgba(7,13,25,0.36),rgba(7,13,25,0.92))] p-5 shadow-[0_-24px_80px_rgba(0,0,0,0.34)] backdrop-blur-md">
-	                    <h3 className="font-display mt-3 max-w-[11ch] text-[2.2rem] leading-[0.94] tracking-[-0.06em] text-[#eeeeee]">
+	                <div className="absolute inset-x-0 bottom-0 p-4">
+	                  <div className="rounded-[26px] border border-white/12 bg-[linear-gradient(180deg,rgba(7,13,25,0.36),rgba(7,13,25,0.92))] p-4 shadow-[0_-24px_80px_rgba(0,0,0,0.34)] backdrop-blur-md">
+	                    <h3 className="font-display max-w-[14ch] text-[1.92rem] leading-[0.98] tracking-[-0.05em] text-[#eeeeee] line-clamp-3">
 	                      {mobileHeroCase.title}
 	                    </h3>
-	                    <p className="mt-4 max-w-[34ch] text-sm leading-7 text-white/72">
+	                    <p className="mt-3 max-w-[31ch] text-sm leading-6 text-white/70 line-clamp-3">
 	                      Um case construído para mostrar força operacional, presença comercial e confiança para reuniões, prospecção e contratos maiores.
 	                    </p>
-	                    <div className="mt-5 flex items-center justify-between gap-3 border-t border-white/8 pt-4 text-sm text-white/80">
-	                      <span className="max-w-[13rem] rounded-full border border-white/8 bg-white/[0.03] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-white/64">
+	                    <div className="mt-4 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2.5 border-t border-white/8 pt-3 text-sm text-white/80">
+	                      <span className="max-w-[9.5rem] truncate rounded-full border border-white/8 bg-white/[0.03] px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-white/64">
 	                        {mobileHeroCase.segment}
 	                      </span>
-	                      <span className="inline-flex items-center gap-2 rounded-full border border-[#0055ff]/26 bg-[#0055ff]/12 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[#9cc4ff] shadow-[0_14px_30px_rgba(0,85,255,0.16)]">
+	                      <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-[#0055ff]/26 bg-[#0055ff]/12 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-[#9cc4ff] shadow-[0_14px_30px_rgba(0,85,255,0.16)]">
 	                        Ver case em destaque
-	                        <ArrowRight className="h-4 w-4" />
+	                        <ArrowRight className="h-3.5 w-3.5" />
 	                      </span>
 	                    </div>
 	                  </div>
