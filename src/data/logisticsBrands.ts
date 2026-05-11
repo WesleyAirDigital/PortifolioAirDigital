@@ -20,7 +20,7 @@ export const logisticsBrands: LogisticsBrand[] = [
     sector: 'Montadora',
     logoSrc: brandLogoPath('renault.jpeg'),
     alt: 'Logo da Renault',
-    logoClassName: 'h-[78px] max-w-[66%]',
+    logoClassName: 'h-[58px] max-w-[52%] sm:h-[66px]',
   },
   {
     id: 'bmw',
@@ -28,7 +28,7 @@ export const logisticsBrands: LogisticsBrand[] = [
     sector: 'Mobilidade premium',
     logoSrc: brandLogoPath('bmw-v2.webp'),
     alt: 'Logo da BMW',
-    logoClassName: 'h-[88px] max-w-[58%]',
+    logoClassName: 'h-[66px] max-w-[48%] sm:h-[72px]',
   },
   {
     id: 'continental',
@@ -36,7 +36,7 @@ export const logisticsBrands: LogisticsBrand[] = [
     sector: 'Autopeças e engenharia',
     logoSrc: brandLogoPath('continental.jpg'),
     alt: 'Logo da Continental',
-    logoClassName: 'h-[58px] max-w-[94%]',
+    logoClassName: 'h-[44px] max-w-[88%] sm:h-[50px]',
   },
   {
     id: 'daf',
@@ -44,7 +44,7 @@ export const logisticsBrands: LogisticsBrand[] = [
     sector: 'Mobilidade industrial',
     logoSrc: brandLogoPath('daf.png'),
     alt: 'Logo da DAF',
-    logoClassName: 'h-[70px] max-w-[94%]',
+    logoClassName: 'h-[54px] max-w-[84%] sm:h-[60px]',
   },
   {
     id: 'electrolux',
@@ -52,7 +52,7 @@ export const logisticsBrands: LogisticsBrand[] = [
     sector: 'Eletroindústria',
     logoSrc: brandLogoPath('electrolux.png'),
     alt: 'Logo da Electrolux',
-    logoClassName: 'h-[72px] max-w-[94%]',
+    logoClassName: 'h-[52px] max-w-[86%] sm:h-[58px]',
   },
   {
     id: 'jcb',
@@ -60,7 +60,7 @@ export const logisticsBrands: LogisticsBrand[] = [
     sector: 'Máquinas e construção',
     logoSrc: brandLogoPath('jcb.svg'),
     alt: 'Logo da JCB',
-    logoClassName: 'h-[70px] max-w-[82%]',
+    logoClassName: 'h-[54px] max-w-[68%] sm:h-[60px]',
   },
   {
     id: 'klabin',
@@ -68,7 +68,7 @@ export const logisticsBrands: LogisticsBrand[] = [
     sector: 'Papel e celulose',
     logoSrc: brandLogoPath('klabin.png'),
     alt: 'Logo da Klabin',
-    logoClassName: 'h-[88px] max-w-[74%]',
+    logoClassName: 'h-[62px] max-w-[62%] sm:h-[70px]',
   },
   {
     id: 'brf',
@@ -76,7 +76,7 @@ export const logisticsBrands: LogisticsBrand[] = [
     sector: 'Alimentos e supply',
     logoSrc: brandLogoPath('brf.png'),
     alt: 'Logo da BRF',
-    logoClassName: 'h-[86px] max-w-[62%]',
+    logoClassName: 'h-[64px] max-w-[48%] sm:h-[70px]',
   },
   {
     id: 'coca-cola',
@@ -84,7 +84,7 @@ export const logisticsBrands: LogisticsBrand[] = [
     sector: 'Bens de consumo',
     logoSrc: brandLogoPath('coca-cola.webp'),
     alt: 'Logo da Coca-Cola',
-    logoClassName: 'h-[70px] max-w-[84%]',
+    logoClassName: 'h-[52px] max-w-[72%] sm:h-[58px]',
   },
   {
     id: 'makita',
@@ -92,7 +92,7 @@ export const logisticsBrands: LogisticsBrand[] = [
     sector: 'Ferramentas industriais',
     logoSrc: brandLogoPath('makita.svg'),
     alt: 'Logo da Makita',
-    logoClassName: 'h-[66px] max-w-[82%]',
+    logoClassName: 'h-[48px] max-w-[72%] sm:h-[54px]',
   },
   {
     id: 'o-boticario',
@@ -100,7 +100,7 @@ export const logisticsBrands: LogisticsBrand[] = [
     sector: 'Varejo e manufatura',
     logoSrc: brandLogoPath('o-boticario.png'),
     alt: 'Logo do O Boticário',
-    logoClassName: 'h-[84px] max-w-[64%]',
+    logoClassName: 'h-[64px] max-w-[52%] sm:h-[70px]',
   },
   {
     id: 'tetra-pak',
@@ -108,7 +108,7 @@ export const logisticsBrands: LogisticsBrand[] = [
     sector: 'Embalagem e alimentos',
     logoSrc: brandLogoPath('tetra-pak-v2.svg'),
     alt: 'Logo da Tetra Pak',
-    logoClassName: 'h-[92px] max-w-[70%]',
+    logoClassName: 'h-[68px] max-w-[58%] sm:h-[74px]',
   },
   {
     id: 'heineken',
@@ -116,7 +116,7 @@ export const logisticsBrands: LogisticsBrand[] = [
     sector: 'Bens de consumo',
     logoSrc: brandLogoPath('heineken.jpg'),
     alt: 'Logo da Heineken',
-    logoClassName: 'h-[64px] max-w-[78%]',
+    logoClassName: 'h-[48px] max-w-[66%] sm:h-[54px]',
   },
   {
     id: 'toyota',
@@ -124,7 +124,7 @@ export const logisticsBrands: LogisticsBrand[] = [
     sector: 'Montadora',
     logoSrc: brandLogoPath('toyota-v2.png'),
     alt: 'Logo da Toyota',
-    logoClassName: 'h-[74px] max-w-[76%]',
+    logoClassName: 'h-[56px] max-w-[62%] sm:h-[62px]',
   },
   {
     id: 'volvo',
@@ -132,7 +132,7 @@ export const logisticsBrands: LogisticsBrand[] = [
     sector: 'Mobilidade e pesados',
     logoSrc: brandLogoPath('volvo.jpg'),
     alt: 'Logo da Volvo',
-    logoClassName: 'h-[68px] max-w-[72%]',
+    logoClassName: 'h-[50px] max-w-[62%] sm:h-[56px]',
   },
   {
     id: 'sig',
@@ -140,6 +140,6 @@ export const logisticsBrands: LogisticsBrand[] = [
     sector: 'Embalagem industrial',
     logoSrc: brandLogoPath('sig.png'),
     alt: 'Logo da SIG',
-    logoClassName: 'h-[84px] max-w-[68%]',
+    logoClassName: 'h-[62px] max-w-[52%] sm:h-[68px]',
   },
 ]

@@ -26,11 +26,38 @@ const createWhatsAppLink = (message: string) =>
   `https://wa.me/5541991361276?text=${encodeURIComponent(message)}`
 
 const strategicDiagnosisHref = createWhatsAppLink(
-  'Olá, vim pela landing de logística da Air Digital e quero agendar um diagnóstico estratégico para minha operação.',
+  'Olá, vim pela landing de logística da Air Digital e quero agendar um diagnóstico comercial para minha operação.',
 )
 
 const specialistHref = createWhatsAppLink(
-  'Olá, vim pela landing de logística da Air Digital e quero falar com um especialista sobre posicionamento comercial para logística.',
+  'Olá, vim pela landing de logística da Air Digital e quero conversar sobre posicionamento comercial e autoridade para minha operação.',
+)
+
+const casePriorityOrder = [
+  'master-cargas-operacao',
+  'master-cargas-frota',
+  'master-cargas-joinville-escala',
+  'master-cargas-bebidas-dedicada',
+  'br-277-full-service',
+  'operacao-bebidas-abastecimento',
+  'assertividade-modais',
+  'master-cargas-cftv',
+  'master-cargas-cachoeirinha',
+  'indaiatuba-linha-branca',
+  'daf-pos-venda-estrutura',
+  'daf-pecas-armazenagem',
+  'importacao-v7-controle',
+  'convencao-cultura-performance',
+  'motoristas-2025',
+  'armazem-2-ponta-grossa',
+  'weg-continuidade-operacional',
+  'spcs-supervisao-ativos',
+  'bioar-arla32-tecnologia-rota',
+  'locacao-sao-jose-pinhais',
+] as const
+
+const casePriorityRank = new Map<string, number>(
+  casePriorityOrder.map((id, index) => [id, index]),
 )
 
 const authorityMetrics = [
@@ -80,18 +107,24 @@ const serviceItems = [
 function App() {
   const [selectedCase, setSelectedCase] = useState<(typeof logisticsCases)[number] | null>(null)
   const [activeCategory, setActiveCategory] = useState('Todos')
+  const orderedCases = [...logisticsCases].sort((firstCase, secondCase) => {
+    const firstRank = casePriorityRank.get(firstCase.id) ?? Number.MAX_SAFE_INTEGER
+    const secondRank = casePriorityRank.get(secondCase.id) ?? Number.MAX_SAFE_INTEGER
+
+    return firstRank - secondRank
+  })
 
   const deferredCategory = useDeferredValue(activeCategory)
-  const categories = ['Todos', ...new Set(logisticsCases.map((item) => item.category))]
+  const categories = ['Todos', ...new Set(orderedCases.map((item) => item.category))]
   const visibleCases =
     deferredCategory === 'Todos'
-      ? logisticsCases
-      : logisticsCases.filter((item) => item.category === deferredCategory)
+      ? orderedCases
+      : orderedCases.filter((item) => item.category === deferredCategory)
 
-  const featuredCase = logisticsCases[0]
+  const featuredCase = orderedCases[0]
   const mobileHeroCase =
-    logisticsCases.find((item) => item.id === 'master-cargas-operacao') ?? logisticsCases[0]
-  const mobileCatalogCases = logisticsCases.filter((item) => item.id !== mobileHeroCase.id)
+    orderedCases.find((item) => item.id === 'master-cargas-operacao') ?? orderedCases[0]
+  const mobileCatalogCases = orderedCases.filter((item) => item.id !== mobileHeroCase.id)
 
   const openCase = (caseItem: (typeof logisticsCases)[number]) => {
     startTransition(() => {
@@ -138,7 +171,7 @@ function App() {
               rel="noreferrer"
               className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-[#0055ff] px-5 py-3 text-sm font-medium text-white shadow-[0_18px_50px_rgba(0,85,255,0.28)] transition hover:-translate-y-0.5 hover:bg-[#1767ff]"
             >
-              Falar com especialista
+              Falar sobre sua operação
             </a>
           </div>
         </header>
@@ -148,15 +181,15 @@ function App() {
             <div className="max-w-[760px]">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/72 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
                 <span className="h-2 w-2 rounded-full bg-[#70b3ff]" />
-                Central premium de cases para logística
+                Portfólio premium de vídeo cases para logística
               </div>
 
               <h1 className="font-display text-glow mt-8 max-w-[14ch] text-[3.3rem] font-medium leading-[0.95] tracking-[-0.06em] text-[#eeeeee] sm:text-[4.4rem] lg:text-[5.6rem]">
-                Transformamos transportadoras em marcas preparadas para fechar com grandes indústrias
+                Transformamos operação logística em autoridade percebida para fechar com grandes indústrias
               </h1>
 
               <p className="mt-7 max-w-[63ch] text-lg leading-8 text-white/62 sm:text-xl">
-                Consultoria comercial, posicionamento e execução estratégica para empresas de logística que querem ganhar autoridade, elevar a percepção de valor e abrir espaço em contratos maiores no B2B industrial.
+                Da estratégia ao vídeo case, estruturamos presença comercial, argumento visual e percepção de valor para empresas que precisam abrir agenda, sustentar propostas e avançar em contratos maiores no B2B industrial.
               </p>
 
 	              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
@@ -166,7 +199,7 @@ function App() {
                   rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#0055ff] px-6 py-4 text-sm font-medium text-white shadow-[0_24px_60px_rgba(0,85,255,0.28)] transition hover:-translate-y-0.5 hover:bg-[#1767ff]"
 	                >
-	                  Agendar diagnóstico estratégico
+	                  Agendar diagnóstico comercial
 	                  <ArrowRight className="h-4 w-4" />
 	                </a>
 
@@ -174,7 +207,7 @@ function App() {
 	                  href="#catalogo-mobile"
 	                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/12 bg-white/5 px-6 py-4 text-sm font-medium text-white/86 transition hover:border-white/18 hover:bg-white/8 lg:hidden"
 	                >
-	                  Explorar catálogo em vídeo
+	                  Ver cases que vendem operação
 	                  <Play className="h-4 w-4" />
 	                </a>
 
@@ -182,7 +215,7 @@ function App() {
 	                  href="#catalogo"
 	                  className="hidden items-center justify-center gap-2 rounded-2xl border border-white/12 bg-white/5 px-6 py-4 text-sm font-medium text-white/86 transition hover:border-white/18 hover:bg-white/8 lg:inline-flex"
 	                >
-	                  Ver cases da logística
+	                  Ver cases que vendem operação
 	                  <Play className="h-4 w-4" />
 	                </a>
 	              </div>
@@ -206,7 +239,7 @@ function App() {
 	              <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white/18 to-transparent" />
 	              <div className="flex items-center justify-between gap-3">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.36em] text-white/38">Case destaque</p>
+                  <p className="text-xs uppercase tracking-[0.36em] text-white/38">Case de abertura</p>
                   <h2 className="mt-3 font-display text-3xl tracking-[-0.05em] text-[#eeeeee]">
                     {featuredCase.title}
                   </h2>
@@ -226,7 +259,7 @@ function App() {
                     src={featuredCase.thumbnail}
                     alt={featuredCase.title}
                     loading="eager"
-                    className="aspect-video w-full object-cover transition duration-700 group-hover:scale-105"
+                    className={`aspect-video w-full object-cover brightness-[0.96] contrast-[1.05] saturate-[0.96] transition duration-700 group-hover:scale-105 ${featuredCase.thumbnailClassName ?? 'object-center'}`}
                   />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.08),rgba(2,3,8,0.82))]" />
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,85,255,0.18),transparent_52%)] opacity-0 transition duration-500 group-hover:opacity-100" />
@@ -279,59 +312,63 @@ function App() {
 	                Cases que posicionam operações
 	              </h2>
 	              <p className="mt-4 max-w-[38ch] text-sm leading-7 text-white/60">
-	                Um portfólio de video cases criados para transformar operação, estrutura e autoridade em percepção de valor comercial.
+	                Um portfólio de vídeo cases criados para transformar operação, estrutura e autoridade em percepção de valor comercial.
 	              </p>
 	            </div>
 
 	            <button
 	              type="button"
 	              onClick={() => openCase(mobileHeroCase)}
-	              className="group mt-5 block w-full text-left"
+	              className="group mt-5 block w-full text-left focus-visible:outline-none"
 	            >
-	              <div className="panel-border catalog-shadow relative overflow-hidden rounded-[34px] border border-white/10 bg-[#02050b]">
+	              <div className="panel-border catalog-shadow relative overflow-hidden rounded-[34px] border border-white/10 bg-[#02050b] transition duration-500 group-active:scale-[0.992]">
 	                <img
 	                  src={mobileHeroCase.thumbnail}
 	                  alt={mobileHeroCase.title}
 	                  loading="eager"
-	                  className="aspect-[0.98] w-full object-cover transition duration-700 group-hover:scale-[1.035]"
+	                  className={`aspect-[0.98] w-full object-cover brightness-[0.95] contrast-[1.06] saturate-[0.96] transition duration-700 group-hover:scale-[1.05] ${mobileHeroCase.thumbnailClassName ?? 'object-center'}`}
 	                />
-	                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,4,10,0.08)_0%,rgba(2,4,10,0.2)_26%,rgba(2,4,10,0.94)_100%)]" />
-	                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,85,255,0.28),transparent_44%)]" />
+	                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,4,10,0.04)_0%,rgba(2,4,10,0.22)_22%,rgba(2,4,10,0.58)_56%,rgba(2,4,10,0.96)_100%)]" />
+	                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,85,255,0.34),transparent_42%)]" />
+	                <div className="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(180deg,transparent,rgba(2,4,10,0.26)_30%,rgba(2,4,10,0.9))]" />
 
 	                <div className="absolute left-4 right-4 top-4 flex items-start justify-between gap-3">
 	                  <div className="flex flex-wrap items-center gap-2">
-	                    <span className="rounded-full border border-[#0055ff]/28 bg-[#0055ff]/16 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.26em] text-[#8bb8ff]">
+		                    <span className="rounded-full border border-[#0055ff]/30 bg-[rgba(0,85,255,0.18)] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.26em] text-[#9cc4ff] shadow-[0_10px_28px_rgba(0,85,255,0.18)] backdrop-blur-md">
 	                      Case em destaque
 	                    </span>
-	                    <span className="rounded-full border border-white/12 bg-black/34 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-white/72">
+	                    <span className="rounded-full border border-white/12 bg-black/40 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-white/78 backdrop-blur-md">
 	                      {mobileHeroCase.badge}
 	                    </span>
 	                  </div>
-	                  <span className="rounded-full border border-white/12 bg-black/34 px-3 py-1 text-[11px] font-medium text-white/70">
+	                  <span className="rounded-full border border-white/12 bg-black/40 px-3 py-1 text-[11px] font-medium text-white/76 backdrop-blur-md">
 	                    {mobileHeroCase.duration}
 	                  </span>
 	                </div>
 
-	                <div className="absolute inset-0 flex items-center justify-center">
-	                  <span className="flex h-24 w-24 items-center justify-center rounded-full border border-white/16 bg-[rgba(3,8,19,0.66)] text-white shadow-[0_0_0_16px_rgba(0,85,255,0.08),0_26px_90px_rgba(0,0,0,0.42)] backdrop-blur-md transition duration-300 group-hover:scale-110 group-hover:border-[#7db7ff]/58 group-hover:bg-[#0055ff]/24">
-	                    <Play className="ml-1 h-9 w-9 fill-current" />
+	                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+	                  <span className="flex h-28 w-28 items-center justify-center rounded-full border border-[#8bb8ff]/38 bg-[radial-gradient(circle_at_32%_28%,rgba(37,110,255,0.44),rgba(3,8,19,0.92))] text-white shadow-[0_0_0_12px_rgba(255,255,255,0.04),0_0_0_28px_rgba(0,85,255,0.1),0_32px_120px_rgba(0,0,0,0.52)] backdrop-blur-md transition duration-300 group-hover:scale-110 group-hover:border-[#c8deff]/72 group-hover:shadow-[0_0_0_12px_rgba(255,255,255,0.06),0_0_0_34px_rgba(0,85,255,0.14),0_36px_120px_rgba(0,0,0,0.56)]">
+	                    <Play className="ml-1 h-10 w-10 fill-current" />
+	                  </span>
+	                  <span className="rounded-full border border-white/10 bg-black/42 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-white/78 backdrop-blur-md">
+	                    toque para assistir
 	                  </span>
 	                </div>
 
 	                <div className="absolute inset-x-0 bottom-0 p-5">
-	                  <div className="rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(7,13,25,0.3),rgba(7,13,25,0.88))] p-5 backdrop-blur-md">
+	                  <div className="rounded-[28px] border border-white/12 bg-[linear-gradient(180deg,rgba(7,13,25,0.36),rgba(7,13,25,0.92))] p-5 shadow-[0_-24px_80px_rgba(0,0,0,0.34)] backdrop-blur-md">
 	                    <h3 className="font-display mt-3 max-w-[11ch] text-[2.2rem] leading-[0.94] tracking-[-0.06em] text-[#eeeeee]">
 	                      {mobileHeroCase.title}
 	                    </h3>
-	                    <p className="mt-4 max-w-[34ch] text-sm leading-7 text-white/66">
+	                    <p className="mt-4 max-w-[34ch] text-sm leading-7 text-white/72">
 	                      Um case construído para mostrar força operacional, presença comercial e confiança para reuniões, prospecção e contratos maiores.
 	                    </p>
 	                    <div className="mt-5 flex items-center justify-between gap-3 border-t border-white/8 pt-4 text-sm text-white/80">
-	                      <span className="max-w-[14rem] truncate text-white/56">
+	                      <span className="max-w-[13rem] rounded-full border border-white/8 bg-white/[0.03] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-white/64">
 	                        {mobileHeroCase.segment}
 	                      </span>
-	                      <span className="inline-flex items-center gap-2 text-[#8bb8ff]">
-	                        Assistir case
+	                      <span className="inline-flex items-center gap-2 rounded-full border border-[#0055ff]/26 bg-[#0055ff]/12 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-[#9cc4ff] shadow-[0_14px_30px_rgba(0,85,255,0.16)]">
+	                        Ver case em destaque
 	                        <ArrowRight className="h-4 w-4" />
 	                      </span>
 	                    </div>
@@ -576,7 +613,7 @@ function App() {
             <div className="panel-border overflow-hidden rounded-[40px] bg-[linear-gradient(180deg,rgba(8,17,34,0.96),rgba(2,3,8,0.92))]">
               <div className="grid gap-8 p-8 lg:grid-cols-[1.08fr_0.92fr] lg:p-12">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.42em] text-white/36">CTA final</p>
+                  <p className="text-xs uppercase tracking-[0.42em] text-white/36">Próximo passo</p>
                   <h2 className="mt-5 font-display max-w-[12ch] text-[2.8rem] leading-[0.94] tracking-[-0.06em] text-[#eeeeee] sm:text-[4rem]">
                     Sua operação já entrega. Agora sua marca precisa comunicar isso no mesmo nível.
                   </h2>
@@ -610,7 +647,7 @@ function App() {
                       rel="noreferrer"
                       className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl bg-[#0055ff] px-5 py-4 text-sm font-medium text-white shadow-[0_20px_50px_rgba(0,85,255,0.26)] transition hover:-translate-y-0.5 hover:bg-[#1767ff]"
                     >
-                      Agendar diagnóstico estratégico
+                      Agendar diagnóstico comercial
                       <ArrowRight className="h-4 w-4" />
                     </a>
                     <a
@@ -619,7 +656,7 @@ function App() {
                       rel="noreferrer"
                       className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl border border-white/12 bg-white/5 px-5 py-4 text-sm font-medium text-white/84 transition hover:border-white/18 hover:bg-white/8"
                     >
-                      Falar com especialista
+                      Falar sobre posicionamento
                     </a>
                   </div>
                 </div>
@@ -650,7 +687,7 @@ function App() {
       <VideoCaseModal
         caseItem={selectedCase}
         onClose={() => setSelectedCase(null)}
-        contactHref={specialistHref}
+        contactHref={strategicDiagnosisHref}
       />
     </>
   )

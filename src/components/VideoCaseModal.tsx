@@ -188,7 +188,7 @@ export function VideoCaseModal({
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#0055ff] px-5 py-4 text-sm font-medium text-white shadow-[0_20px_50px_rgba(0,85,255,0.26)] transition hover:-translate-y-0.5 hover:bg-[#1767ff]"
             >
-              Quero esse nível na minha operação
+              Quero esse padrão comercial
               <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>

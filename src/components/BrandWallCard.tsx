@@ -13,17 +13,18 @@ export function BrandWallCard({ brand }: BrandWallCardProps) {
       <div className="relative flex flex-col gap-4">
         <p className="text-[11px] uppercase tracking-[0.32em] text-white/34">{brand.sector}</p>
 
-        <div className="flex min-h-[124px] items-center justify-center rounded-[24px] border border-white/7 bg-[linear-gradient(180deg,#f7f9ff,#edf2fb)] px-6 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.88),0_14px_28px_rgba(0,0,0,0.12)]">
+        <div className="relative flex min-h-[116px] items-center justify-center overflow-hidden rounded-[24px] border border-white/7 bg-[linear-gradient(180deg,#fbfcff,#eef3fb)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_16px_34px_rgba(0,0,0,0.12)] sm:min-h-[124px] sm:px-6">
+          <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#d2def7] to-transparent" />
           {brand.logoSrc ? (
             <img
               src={brand.logoSrc}
               alt={brand.alt ?? brand.name}
               loading="lazy"
-              className={`mx-auto w-full object-contain mix-blend-multiply opacity-92 transition duration-300 group-hover:opacity-100 ${brand.logoClassName ?? 'h-[72px] max-w-[82%]'}`}
+              className={`relative mx-auto w-full object-contain opacity-[0.96] transition duration-300 group-hover:scale-[1.02] group-hover:opacity-100 ${brand.logoClassName ?? 'h-[60px] max-w-[72%] sm:h-[66px]'}`}
             />
           ) : (
             <span
-              className={`text-center font-display text-[1.9rem] leading-none text-[#f2f5fb] ${brand.wordmarkClassName ?? 'tracking-[-0.05em]'}`}
+              className={`text-center font-display text-[1.9rem] leading-none text-[#15243d] ${brand.wordmarkClassName ?? 'tracking-[-0.05em]'}`}
             >
               {brand.name}
             </span>
@@ -31,7 +32,7 @@ export function BrandWallCard({ brand }: BrandWallCardProps) {
         </div>
 
         <p className="text-sm text-white/48 transition duration-300 group-hover:text-white/64">
-          Contexto industrial e logístico B2B.
+          Contexto industrial, logístico e comercial B2B.
         </p>
       </div>
     </article>
