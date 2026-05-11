@@ -17,7 +17,6 @@ export type LogisticsCase = {
 }
 
 const imagePath = (fileName: string) => withBasePath(`/images/logistics/${fileName}`)
-const videoPath = (fileName: string) => withBasePath(`/media/logistics/${fileName}`)
 const youtubeVideoPath = (videoId: string) => `https://www.youtube.com/watch?v=${videoId}`
 
 // Add, remove or reorder items here to update the streaming catalog.
@@ -66,18 +65,19 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'Master Cargas | Presença institucional',
     category: 'Institucional',
     thumbnail: imagePath('master-cargas-frota.jpg'),
-    videoUrl: videoPath('master-cargas-frota.mp4'),
-    segment: 'Logística / Branding / Presença executiva',
+    videoUrl: youtubeVideoPath('CZ_0EdDrirM'),
+    videoType: 'youtube',
+    segment: 'Logística / Institucional / Presença executiva',
     objective:
       'Elevar o nível de percepção da marca para apoiar negociação, confiança e posicionamento corporativo.',
     strategy:
-      'Peça institucional com acabamento premium, foco em detalhes visuais e narrativa de marca voltada ao ambiente executivo.',
+      'Vídeo institucional com apresentação dos modais, da estrutura e da proposta de valor da marca para reforçar solidez, amplitude e presença executiva.',
     result:
       'Marca mais memorável, comunicação mais sofisticada e melhor sustentação em vendas consultivas.',
     description:
-      'Um institucional pensado para parecer tão corporativo quanto a operação que está por trás dele.',
+      'Um institucional pensado para comunicar amplitude de atuação, confiança operacional e presença corporativa com mais clareza.',
     badge: 'Branding',
-    duration: '0:18',
+    duration: '2:01',
   },
   {
     id: 'operacao-bebidas-abastecimento',
@@ -103,19 +103,19 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'Convenção estratégica | Cultura e performance',
     category: 'Marca Empregadora',
     thumbnail: imagePath('convencao-cultura-performance.jpg'),
-    videoUrl: youtubeVideoPath('3_Abrl_Qa7A'),
+    videoUrl: youtubeVideoPath('6FsTk6fXU0A'),
     videoType: 'youtube',
-    segment: 'Eventos corporativos / Cultura / Endomarketing',
+    segment: 'Cultura / Marca empregadora / GPTW',
     objective:
-      'Registrar um encontro estratégico com padrão premium para reforçar cultura, engajamento interno e percepção de marca empregadora.',
+      'Transformar o reconhecimento GPTW 2026 em um ativo de marca empregadora, orgulho interno e prova pública de cultura de alta performance.',
     strategy:
-      'Cobertura audiovisual com linguagem de evento corporativo, ritmo dinâmico e foco em palco, time e clima de reconhecimento.',
+      'Captação do reconhecimento, da liderança e do time com linguagem institucional premium para conectar cultura, performance e credibilidade perante mercado e talentos.',
     result:
-      'Material mais forte para employer branding, comunicação interna e posicionamento institucional da marca.',
+      'Mais força para employer branding, comunicação interna e posicionamento institucional com uma prova social clara da cultura da empresa.',
     description:
-      'Um case de convenção pensado para traduzir energia de time, cultura e direção estratégica com acabamento premium.',
-    badge: 'Institucional',
-    duration: '2:16',
+      'O reconhecimento GPTW 2026 apresentado como prova concreta de cultura, engajamento e visão de crescimento.',
+    badge: 'GPTW 2026',
+    duration: '1:11',
   },
   {
     id: 'master-cargas-joinville-escala',
@@ -160,18 +160,19 @@ export const logisticsCases: LogisticsCase[] = [
     title: 'Master Cargas | Operação dedicada para bebidas',
     category: 'Operação Industrial',
     thumbnail: imagePath('master-cargas-bebidas-dedicada.jpg'),
-    videoUrl: videoPath('master-cargas-bebidas-dedicada.mp4'),
-    segment: 'Logística / Bebidas / Operação dedicada',
+    videoUrl: youtubeVideoPath('Jg5VPfU-ToU'),
+    videoType: 'youtube',
+    segment: 'Logística / Bebidas / Ponta Grossa',
     objective:
-      'Apresentar uma operação dedicada com leitura clara de estoque, movimentação e padronização em ambiente de alto giro.',
+      'Evidenciar a escala e a cadência de uma operação dedicada ao setor de bebidas, com leitura imediata de giro, docas e capacidade de atendimento.',
     strategy:
-      'Captação com foco em armazenagem de bebidas, circulação de equipamentos e ambientação operacional de grande volume.',
+      'Narrativa orientada a fluxo, movimentação e volume operacional para traduzir alta cadência e confiabilidade em um ambiente logístico de bebidas.',
     result:
-      'Mais percepção de especialização e mais repertório visual para defender operações dedicadas com valor agregado.',
+      'Mais argumento comercial para defender operações dedicadas, capacidade instalada e consistência em cenários de alto giro.',
     description:
-      'Um case que posiciona a operação como parceira preparada para rotinas intensas, visibilidade e controle.',
+      'Ponta Grossa apresentada como operação dedicada de bebidas, com ritmo, escala e previsibilidade para grandes contas.',
     badge: 'Operação',
-    duration: '1:11',
+    duration: '1:02',
   },
   {
     id: 'daf-pos-venda-estrutura',

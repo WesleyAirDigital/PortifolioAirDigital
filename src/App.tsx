@@ -89,6 +89,9 @@ function App() {
       : logisticsCases.filter((item) => item.category === deferredCategory)
 
   const featuredCase = logisticsCases[0]
+  const mobileHeroCase =
+    logisticsCases.find((item) => item.id === 'master-cargas-operacao') ?? logisticsCases[0]
+  const mobileCatalogCases = logisticsCases.filter((item) => item.id !== mobileHeroCase.id)
 
   const openCase = (caseItem: (typeof logisticsCases)[number]) => {
     startTransition(() => {
@@ -141,7 +144,7 @@ function App() {
         </header>
 
         <main id="topo">
-          <section className="mx-auto flex w-full max-w-[1280px] flex-col gap-14 px-6 pb-16 pt-14 lg:px-8 lg:pb-24 lg:pt-20 xl:grid xl:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] xl:items-end">
+	          <section className="mx-auto flex w-full max-w-[1280px] flex-col gap-14 px-6 pb-16 pt-14 lg:px-8 lg:pb-24 lg:pt-20 xl:grid xl:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] xl:items-end">
             <div className="max-w-[760px]">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/72 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
                 <span className="h-2 w-2 rounded-full bg-[#70b3ff]" />
@@ -156,30 +159,38 @@ function App() {
                 Consultoria comercial, posicionamento e execução estratégica para empresas de logística que querem ganhar autoridade, elevar a percepção de valor e abrir espaço em contratos maiores no B2B industrial.
               </p>
 
-              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <a
-                  href={strategicDiagnosisHref}
+	              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+	                <a
+	                  href={strategicDiagnosisHref}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#0055ff] px-6 py-4 text-sm font-medium text-white shadow-[0_24px_60px_rgba(0,85,255,0.28)] transition hover:-translate-y-0.5 hover:bg-[#1767ff]"
-                >
-                  Agendar diagnóstico estratégico
-                  <ArrowRight className="h-4 w-4" />
-                </a>
+	                >
+	                  Agendar diagnóstico estratégico
+	                  <ArrowRight className="h-4 w-4" />
+	                </a>
 
-                <a
-                  href="#catalogo"
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/12 bg-white/5 px-6 py-4 text-sm font-medium text-white/86 transition hover:border-white/18 hover:bg-white/8"
-                >
-                  Ver cases da logística
-                  <Play className="h-4 w-4" />
-                </a>
-              </div>
+	                <a
+	                  href="#catalogo-mobile"
+	                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/12 bg-white/5 px-6 py-4 text-sm font-medium text-white/86 transition hover:border-white/18 hover:bg-white/8 lg:hidden"
+	                >
+	                  Explorar catálogo em vídeo
+	                  <Play className="h-4 w-4" />
+	                </a>
 
-              <div className="panel-border catalog-shadow mt-12 grid gap-4 rounded-[30px] bg-white/[0.03] p-5 sm:grid-cols-3">
-                {authorityMetrics.map((metric) => (
-                  <div
-                    key={metric.value}
+	                <a
+	                  href="#catalogo"
+	                  className="hidden items-center justify-center gap-2 rounded-2xl border border-white/12 bg-white/5 px-6 py-4 text-sm font-medium text-white/86 transition hover:border-white/18 hover:bg-white/8 lg:inline-flex"
+	                >
+	                  Ver cases da logística
+	                  <Play className="h-4 w-4" />
+	                </a>
+	              </div>
+
+	              <div className="panel-border catalog-shadow mt-12 hidden gap-4 rounded-[30px] bg-white/[0.03] p-5 sm:grid-cols-3 lg:grid">
+	                {authorityMetrics.map((metric) => (
+	                  <div
+	                    key={metric.value}
                     className="rounded-[22px] border border-white/6 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-5"
                   >
                     <p className="font-display text-2xl tracking-[-0.04em] text-[#eeeeee]">
@@ -191,9 +202,9 @@ function App() {
               </div>
             </div>
 
-            <div className="panel-border catalog-shadow soft-grid relative rounded-[34px] bg-[#060b18]/80 p-5 sm:p-6">
-              <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white/18 to-transparent" />
-              <div className="flex items-center justify-between gap-3">
+	            <div className="panel-border catalog-shadow soft-grid relative hidden rounded-[34px] bg-[#060b18]/80 p-5 sm:p-6 lg:block">
+	              <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white/18 to-transparent" />
+	              <div className="flex items-center justify-between gap-3">
                 <div>
                   <p className="text-xs uppercase tracking-[0.36em] text-white/38">Case destaque</p>
                   <h2 className="mt-3 font-display text-3xl tracking-[-0.05em] text-[#eeeeee]">
@@ -247,12 +258,117 @@ function App() {
                   <p className="mt-3 text-sm leading-6 text-white/62">{featuredCase.result}</p>
                 </div>
               </div>
-            </div>
-          </section>
+	            </div>
+	          </section>
 
-          <section className="mx-auto w-full max-w-[1280px] px-6 py-10 lg:px-8 lg:py-14">
-            <SectionTitle
-              eyebrow="Autoridade aplicada"
+	          <section
+	            id="catalogo-mobile"
+	            className="mx-auto w-full max-w-[1280px] px-6 pb-10 lg:hidden"
+	          >
+	            <div className="panel-border catalog-shadow overflow-hidden rounded-[34px] bg-[linear-gradient(180deg,rgba(6,11,24,0.95),rgba(3,7,15,0.98))] p-5">
+	              <div className="flex items-center justify-between gap-3">
+	                <span className="rounded-full border border-[#0055ff]/24 bg-[#0055ff]/12 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.26em] text-[#8bb8ff]">
+	                  Portfólio em vídeo
+	                </span>
+	                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.26em] text-white/48">
+	                  catálogo premium
+	                </span>
+	              </div>
+
+	              <h2 className="font-display mt-5 max-w-[13ch] text-[2.35rem] leading-[0.94] tracking-[-0.06em] text-[#eeeeee]">
+	                Cases que posicionam operações
+	              </h2>
+	              <p className="mt-4 max-w-[38ch] text-sm leading-7 text-white/60">
+	                Um portfólio de video cases criados para transformar operação, estrutura e autoridade em percepção de valor comercial.
+	              </p>
+	            </div>
+
+	            <button
+	              type="button"
+	              onClick={() => openCase(mobileHeroCase)}
+	              className="group mt-5 block w-full text-left"
+	            >
+	              <div className="panel-border catalog-shadow relative overflow-hidden rounded-[34px] border border-white/10 bg-[#02050b]">
+	                <img
+	                  src={mobileHeroCase.thumbnail}
+	                  alt={mobileHeroCase.title}
+	                  loading="eager"
+	                  className="aspect-[0.98] w-full object-cover transition duration-700 group-hover:scale-[1.035]"
+	                />
+	                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,4,10,0.08)_0%,rgba(2,4,10,0.2)_26%,rgba(2,4,10,0.94)_100%)]" />
+	                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,85,255,0.28),transparent_44%)]" />
+
+	                <div className="absolute left-4 right-4 top-4 flex items-start justify-between gap-3">
+	                  <div className="flex flex-wrap items-center gap-2">
+	                    <span className="rounded-full border border-[#0055ff]/28 bg-[#0055ff]/16 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.26em] text-[#8bb8ff]">
+	                      Case em destaque
+	                    </span>
+	                    <span className="rounded-full border border-white/12 bg-black/34 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-white/72">
+	                      {mobileHeroCase.badge}
+	                    </span>
+	                  </div>
+	                  <span className="rounded-full border border-white/12 bg-black/34 px-3 py-1 text-[11px] font-medium text-white/70">
+	                    {mobileHeroCase.duration}
+	                  </span>
+	                </div>
+
+	                <div className="absolute inset-0 flex items-center justify-center">
+	                  <span className="flex h-24 w-24 items-center justify-center rounded-full border border-white/16 bg-[rgba(3,8,19,0.66)] text-white shadow-[0_0_0_16px_rgba(0,85,255,0.08),0_26px_90px_rgba(0,0,0,0.42)] backdrop-blur-md transition duration-300 group-hover:scale-110 group-hover:border-[#7db7ff]/58 group-hover:bg-[#0055ff]/24">
+	                    <Play className="ml-1 h-9 w-9 fill-current" />
+	                  </span>
+	                </div>
+
+	                <div className="absolute inset-x-0 bottom-0 p-5">
+	                  <div className="rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(7,13,25,0.3),rgba(7,13,25,0.88))] p-5 backdrop-blur-md">
+	                    <h3 className="font-display mt-3 max-w-[11ch] text-[2.2rem] leading-[0.94] tracking-[-0.06em] text-[#eeeeee]">
+	                      {mobileHeroCase.title}
+	                    </h3>
+	                    <p className="mt-4 max-w-[34ch] text-sm leading-7 text-white/66">
+	                      Um case construído para mostrar força operacional, presença comercial e confiança para reuniões, prospecção e contratos maiores.
+	                    </p>
+	                    <div className="mt-5 flex items-center justify-between gap-3 border-t border-white/8 pt-4 text-sm text-white/80">
+	                      <span className="max-w-[14rem] truncate text-white/56">
+	                        {mobileHeroCase.segment}
+	                      </span>
+	                      <span className="inline-flex items-center gap-2 text-[#8bb8ff]">
+	                        Assistir case
+	                        <ArrowRight className="h-4 w-4" />
+	                      </span>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	            </button>
+
+	            <div className="mt-8 flex items-end justify-between gap-4">
+	              <div className="max-w-[18rem]">
+	                <h3 className="font-display text-[1.75rem] leading-[0.98] tracking-[-0.05em] text-[#eeeeee]">
+	                  Mais cases da Air Digital
+	                </h3>
+	                <p className="mt-3 text-sm leading-6 text-white/56">
+	                  Projetos reais para logística, indústria e operações que precisam vender com mais autoridade.
+	                </p>
+	              </div>
+	              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-white/46">
+	                deslize
+	              </span>
+	            </div>
+
+	            <div className="scrollbar-hidden mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4">
+	              {mobileCatalogCases.map((caseItem, index) => (
+	                <VideoCaseCard
+	                  key={caseItem.id}
+	                  caseItem={caseItem}
+	                  onOpen={openCase}
+	                  isFeatured={index === 0}
+	                />
+	              ))}
+	            </div>
+	          </section>
+
+	          <section className="mx-auto w-full max-w-[1280px] px-6 py-10 lg:px-8 lg:py-14">
+	            <SectionTitle
+	              eyebrow="Autoridade aplicada"
               title="Comunicação para logística só faz sentido quando fortalece o comercial, a confiança e o acesso a contratos maiores."
               description="A Air Digital combina bagagem operacional, leitura de indústria e execução premium para transformar operação em presença comercial percebida."
             />
@@ -296,18 +412,21 @@ function App() {
             </div>
           </section>
 
-          <section id="catalogo" className="mx-auto w-full max-w-[1280px] px-6 py-12 lg:px-8 lg:py-16">
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-              <SectionTitle
-                eyebrow="Cases em vídeo"
-                title="Cases pensados para vender operação, autoridade e presença comercial no mesmo nível da entrega."
-                description="Cada card funciona como um ativo comercial: abre rápido, mostra o contexto e ajuda a transformar estrutura operacional em argumento para reuniões, propostas e prospecção."
-              />
+	          <section
+	            id="catalogo"
+	            className="mx-auto hidden w-full max-w-[1280px] px-6 py-12 lg:block lg:px-8 lg:py-16"
+	          >
+	            <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+	              <SectionTitle
+	                eyebrow="Catálogo premium de vídeo cases"
+	                title="Um catálogo de cases em vídeo pensado para vender operação, autoridade e presença comercial no mesmo nível da entrega."
+	                description="Cada card funciona como um ativo comercial: abre rápido, mostra o contexto e ajuda a transformar estrutura operacional em argumento para reuniões, propostas e prospecção."
+	              />
 
-              <div className="flex flex-wrap gap-3">
-                {categories.map((category) => {
-                  const isActive = category === activeCategory
-                  return (
+	              <div className="hidden flex-wrap gap-3 lg:flex">
+	                {categories.map((category) => {
+	                  const isActive = category === activeCategory
+	                  return (
                     <button
                       key={category}
                       type="button"

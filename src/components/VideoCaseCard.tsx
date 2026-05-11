@@ -16,7 +16,7 @@ export function VideoCaseCard({
     <button
       type="button"
       onClick={() => onOpen(caseItem)}
-      className="card-lift group panel-border catalog-shadow min-w-[84vw] snap-start overflow-hidden rounded-[30px] border border-white/8 bg-[linear-gradient(180deg,rgba(6,11,24,0.94),rgba(3,7,15,0.98))] text-left sm:min-w-[460px] md:min-w-0"
+      className="card-lift group panel-border catalog-shadow min-w-[82vw] snap-start overflow-hidden rounded-[32px] border border-white/8 bg-[linear-gradient(180deg,rgba(6,11,24,0.96),rgba(2,5,12,0.99))] text-left sm:min-w-[440px] md:min-w-0"
     >
       <div className="relative overflow-hidden">
         <img
@@ -25,7 +25,7 @@ export function VideoCaseCard({
           loading="lazy"
           className="aspect-video w-full object-cover transition duration-700 group-hover:scale-[1.045]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.16),rgba(2,3,8,0.88))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.08),rgba(2,3,8,0.22)_30%,rgba(2,3,8,0.92))]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,85,255,0.22),transparent_52%)] opacity-0 transition duration-500 group-hover:opacity-100" />
 
         <div className="absolute left-4 top-4 flex items-center gap-2">
@@ -41,8 +41,8 @@ export function VideoCaseCard({
         </div>
 
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/16 bg-black/48 text-white shadow-[0_22px_64px_rgba(0,0,0,0.4)] backdrop-blur-md transition duration-300 group-hover:scale-110 group-hover:border-[#66a6ff]/50 group-hover:bg-[#0055ff]/24 group-hover:shadow-[0_0_0_12px_rgba(0,85,255,0.08),0_24px_70px_rgba(0,0,0,0.46)]">
-            <Play className="ml-1 h-5 w-5 fill-current" />
+          <span className="flex h-[4.4rem] w-[4.4rem] items-center justify-center rounded-full border border-white/16 bg-black/54 text-white shadow-[0_0_0_10px_rgba(0,85,255,0.06),0_22px_64px_rgba(0,0,0,0.4)] backdrop-blur-md transition duration-300 group-hover:scale-110 group-hover:border-[#66a6ff]/50 group-hover:bg-[#0055ff]/24 group-hover:shadow-[0_0_0_12px_rgba(0,85,255,0.08),0_24px_70px_rgba(0,0,0,0.46)]">
+            <Play className="ml-1 h-5 w-5 fill-current sm:h-5 sm:w-5" />
           </span>
         </div>
 
@@ -57,8 +57,8 @@ export function VideoCaseCard({
       </div>
 
       <div className="space-y-4 p-5 sm:p-6">
-        <div className="space-y-2">
-          <p className="text-xs uppercase tracking-[0.34em] text-white/34">{caseItem.category}</p>
+        <div className="space-y-2.5">
+          <p className="text-xs uppercase tracking-[0.34em] text-white/38">{caseItem.category}</p>
           <h3 className="font-display text-[1.7rem] leading-[1.02] tracking-[-0.05em] text-[#eeeeee]">
             {caseItem.title}
           </h3>
@@ -69,7 +69,7 @@ export function VideoCaseCard({
         </p>
 
         <div className="flex items-center justify-between border-t border-white/8 pt-4 text-sm text-white/72">
-          <span>Abrir case completo</span>
+          <span>Assistir case completo</span>
           <ArrowUpRight className="h-4 w-4 text-[#8bb8ff] transition duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </div>
       </div>
